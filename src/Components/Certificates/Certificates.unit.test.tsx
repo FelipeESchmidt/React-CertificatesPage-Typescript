@@ -1,16 +1,60 @@
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { store } from "../../Redux/store";
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { makeServer } from '../../miragejs/server';
+import { store } from '../../Redux/store';
 
-import Certificates from "./index";
+import Certificates from './index';
+import { noCertificatesTitle } from './index.constants';
 
-test("should render Title", () => {
-  render(
-    <Provider store={store}>
-      <Certificates />
-    </Provider>
-  );
+describe('Certificates > Unit', () => {
+  let server: any;
 
-  const textElement = screen.queryByText('');
-  expect(textElement).toBeInTheDocument();
+  beforeEach(() => {
+    server = makeServer({ environment: 'test' });
+    server.timing = 0;
+  });
+
+  afterEach(() => {
+    server.shutdown();
+  });
+
+  it('should render the loading', () => {
+    server.timing = 1000;
+
+    render(
+      <Provider store={store}>
+        <Certificates />
+      </Provider>,
+    );
+
+    expect(screen.getByText('Loading')).toBeInTheDocument();
+  });
+
+  it('should call fetchCertificates action', async () => {
+    server.createList('certificate', 8);
+
+    render(
+      <Provider store={store}>
+        <Certificates />
+      </Provider>,
+    );
+
+    expect(await screen.findAllByTestId('certificate')).toHaveLength(8);
+  });
+
+  it('should show "no certificates" message', (done) => {
+    server.createList('certificate', 0);
+
+    render(
+      <Provider store={store}>
+        <Certificates />
+      </Provider>,
+    );
+
+    setTimeout(() => {
+      expect(screen.queryAllByTestId('certificate')).toHaveLength(0);
+      expect(screen.getByText(noCertificatesTitle)).toBeInTheDocument();
+      done();
+    }, 10);
+  });
 });

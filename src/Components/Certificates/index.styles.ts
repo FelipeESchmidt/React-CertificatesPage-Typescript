@@ -1,6 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Certificates = styled.div`
+  padding: 20px 0;
+`;
+
+export const CertificatesTitle = styled.h2`
+  color: ${({ theme }) => theme.white};
   padding: 20px 0;
 `;
 
