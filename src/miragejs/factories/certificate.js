@@ -10,7 +10,6 @@ const images = [
   'Evernote.png',
   'Front-End.png',
   'Javascript.jpg',
-  'OneBitCode.png',
   'Vedovelli1.jpg',
   'Vedovelli2.jpg',
   'Web-Design.png',
