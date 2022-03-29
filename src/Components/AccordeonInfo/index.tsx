@@ -1,11 +1,11 @@
-import React from "react";
-import { AccordeonInfoProps } from "./index.types";
-import * as S from "./index.styles";
+import React from 'react';
+import { AccordeonInfoProps } from './index.types';
+import * as S from './index.styles';
 
 function AccordeonInfo({ info }: { info: AccordeonInfoProps }) {
   const [open, setOpen] = React.useState<boolean>(false);
 
-  const handleOpenInfo = () => {
+  const handleToggleInfo = () => {
     setOpen(!open);
   };
 
@@ -14,9 +14,9 @@ function AccordeonInfo({ info }: { info: AccordeonInfoProps }) {
       <S.StyledTop>
         <S.StyledTitle>{info.title}</S.StyledTitle>
         {open ? (
-          <S.StyledCloseIcon onClick={handleOpenInfo} />
+          <S.StyledCloseIcon data-testid="close-info" onClick={handleToggleInfo} />
         ) : (
-          <S.StyledOpenIcon onClick={handleOpenInfo} />
+          <S.StyledOpenIcon data-testid="open-info" onClick={handleToggleInfo} />
         )}
       </S.StyledTop>
       <S.StyledInfo {...{ open: open }}>
