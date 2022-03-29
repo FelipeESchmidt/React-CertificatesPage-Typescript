@@ -1,16 +1,22 @@
-import * as React from "react";
-import { useSelector } from "react-redux";
+import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Container } from "../../Styles/CommomStyles";
-import { appSelector } from "../../Redux/App/App.selectors";
-import Certificate from "../Certificate";
-import { CertificateProps } from "../Certificate/index.types";
+import { Container } from '../../Styles/CommomStyles';
+import { fetchCertificates } from '../../Redux/App/App.actions';
+import { appSelector } from '../../Redux/App/App.selectors';
+import Certificate from '../Certificate';
+import { CertificateProps } from '../Certificate/index.types';
 
-import { baseFileURL, baseImageURL } from "./index.constants";
-import * as S from "./index.styles";
+import { baseFileURL, baseImageURL } from './index.constants';
+import * as S from './index.styles';
 
 function Certificates() {
+  const dispatch = useDispatch();
   const { certificates, loading } = useSelector(appSelector);
+
+  React.useEffect(() => {
+    dispatch(fetchCertificates);
+  }, [dispatch]);
 
   if (loading) return <>Loading</>;
 
