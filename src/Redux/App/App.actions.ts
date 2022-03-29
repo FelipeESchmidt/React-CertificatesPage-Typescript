@@ -1,9 +1,9 @@
-import { AnyAction } from "redux";
-import { ThunkDispatch } from "redux-thunk";
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
-import { getCertificates } from "../../api/certificatesAPI";
-import { CertificateProps } from "../../Components/Certificate/index.types";
-import * as types from "./App.types";
+import { getCertificates } from '../../api/certificatesAPI';
+import { CertificateProps } from '../../Components/Certificate/index.types';
+import * as types from './App.types';
 
 export const setSearch = (search: string) => ({
   type: types.SET_SEARCH,
@@ -20,12 +20,10 @@ const startRequest = () => ({
 
 const certificatesLoaded = (certificates: Array<CertificateProps>) => ({
   type: types.CERTIFICATES_LOADED,
-  certificates
+  certificates,
 });
 
-export async function fetchCertificates(
-  dispatch: ThunkDispatch<{}, {}, AnyAction>
-) {
+export async function fetchCertificates(dispatch: ThunkDispatch<{}, {}, AnyAction>) {
   dispatch(startRequest());
   const response = await getCertificates();
   dispatch(certificatesLoaded(response));

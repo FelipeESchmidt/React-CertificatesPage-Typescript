@@ -1,17 +1,20 @@
-import { certificatesMock } from "./certificatesMock";
+// import { certificatesMock } from "./certificatesMock";
 
-// const api = "https://my-fs-backend-blog.herokuapp.com";
+import { CertificateProps } from '../Components/Certificate/index.types';
 
-// const headers = {
-//   Accept: "application/json",
-// };
+const baseUrl =
+  process.env.NODE_ENV === 'production' ? 'https://my-fs-backend-blog.herokuapp.com' : '';
+
+const headers = {
+  Accept: 'application/json',
+};
 
 export async function getCertificates() {
-  //   return new Promise((resolve, reject) => {
-  //     fetch(api + "/posts", { headers })
-  //       .then((response) => response.json())
-  //       .then((data) => resolve(data))
-  //       .catch(reject);
-  //   });
-  return certificatesMock;
+  return new Promise<CertificateProps[]>((resolve, reject) => {
+    fetch(`${baseUrl}/api/certificates`, { headers })
+      .then((response) => response.json())
+      .then((data) => resolve(data.certificates))
+      .catch(reject);
+  });
+  // return certificatesMock;
 }
