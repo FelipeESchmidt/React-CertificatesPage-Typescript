@@ -1,5 +1,5 @@
 const certificatesSeeder = (server) => {
-  server.createList('certificate', 25);
+  server.createList('certificate', 12);
 };
 
 export default function seeds(server) {
