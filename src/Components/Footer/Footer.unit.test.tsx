@@ -16,6 +16,16 @@ describe('Footer > Unit', () => {
     expect(screen.getByText(name)).toBeInTheDocument();
   });
 
+  it('should render current year', () => {
+    render(
+      <Provider store={store}>
+        <Footer />
+      </Provider>,
+    );
+
+    expect(screen.getByText(new Date().getFullYear())).toBeInTheDocument();
+  });
+
   it('should render Links', () => {
     render(
       <Provider store={store}>
