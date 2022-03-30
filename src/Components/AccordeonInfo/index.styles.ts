@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
+import styled, { css } from 'styled-components';
+import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs';
 
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -41,7 +41,7 @@ export const StyledCloseIcon = styled(BsFillCaretUpFill)`
 const isOpenProps = css`
   padding-top: 10px;
   row-gap: 8px;
-  transition: font-size 0.4s, margin 0.4s, padding 0.4s, opacity 0.1s 0.45s;
+  transition: font-size 0.4s, margin 0.4s, padding 0.4s, opacity 1s 0.3s;
 `;
 
 const isCloseProps = css`
@@ -76,9 +76,9 @@ export const StyledStackList = styled.ul`
 export const StyledStackItem = styled.li``;
 
 export const StyledSeeMore = styled.button`
-  border: 0;
+  line-height: ${({ open }: any) => (open ? '2.5em' : '0')};
   background-color: ${({ theme }) => theme.primary};
+  border: 0;
   color: ${({ theme }) => theme.white};
-  line-height: ${({ open }: any) => (open ? "2.5em" : "0")};
   cursor: pointer;
 `;
