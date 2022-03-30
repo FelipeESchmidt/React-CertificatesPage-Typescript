@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
 export const Certificates = styled.div`
-  padding: 20px 0;
+  padding-bottom: 20px;
+`;
+
+export const TopWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 0 10px;
 `;
 
 export const CertificatesTitle = styled.h2`

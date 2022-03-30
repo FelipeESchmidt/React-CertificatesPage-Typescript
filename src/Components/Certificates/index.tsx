@@ -8,6 +8,7 @@ import { appSelector } from '../../Redux/App/App.selectors';
 import { CertificateProps } from '../Certificate/index.types';
 import Certificate from '../Certificate';
 import Loading from '../Loading';
+import Switch from '../Switch';
 
 import {
   baseFileURL,
@@ -47,7 +48,10 @@ function Certificates() {
   return (
     <S.Certificates>
       <Container>
-        <S.CertificatesTitle>{certificatesTitle}</S.CertificatesTitle>
+        <S.TopWrapper>
+          <S.CertificatesTitle>{certificatesTitle}</S.CertificatesTitle>
+          <Switch />
+        </S.TopWrapper>
         {loading ? <Loading /> : renderContent()}
       </Container>
     </S.Certificates>

@@ -1,16 +1,4 @@
 import styled from 'styled-components';
-import { Container } from '../../Styles/CommomStyles';
-
-export const StyledWrapper = styled.div`
-  width: 100%;
-  padding: 20px 0;
-  background-color: ${({ theme }) => theme.lightGray};
-`;
-
-export const StyledContainer = styled(Container)`
-  display: flex;
-  justify-content: flex-end;
-`;
 
 export const StyledSwitch = styled.div`
   position: relative;

@@ -17,13 +17,9 @@ function Switch() {
   const isMarked = (): boolean => mode === 'dark';
 
   return (
-    <S.StyledWrapper>
-      <S.StyledContainer>
-        <S.StyledSwitch onClick={handleChange} {...{ marked: isMarked() }}>
-          <S.StyledMarker id="switch-mode" {...{ marked: isMarked() }} />
-        </S.StyledSwitch>
-      </S.StyledContainer>
-    </S.StyledWrapper>
+    <S.StyledSwitch onClick={handleChange} {...{ marked: isMarked() }}>
+      <S.StyledMarker id="switch-mode" {...{ marked: isMarked() }} />
+    </S.StyledSwitch>
   );
 }
 

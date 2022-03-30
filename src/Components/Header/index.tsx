@@ -1,8 +1,8 @@
-import React from "react";
-import { Container } from "../../Styles/CommomStyles";
-import SearchInput from "../SearchInput";
-import { certificatesText } from "./index.constants";
-import * as S from "./index.styles";
+import React from 'react';
+import { Container } from '../../Styles/CommomStyles';
+import SearchInput from '../SearchInput';
+import { certificatesText } from './index.constants';
+import * as S from './index.styles';
 
 function Header() {
   return (
