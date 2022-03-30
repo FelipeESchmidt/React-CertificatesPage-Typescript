@@ -10,7 +10,6 @@ export const StyledWrapper = styled.div`
 export const StyledContainer = styled(Container)`
   display: flex;
   justify-content: flex-end;
-  cursor: pointer;
 `;
 
 export const StyledSwitch = styled.div`
@@ -19,6 +18,7 @@ export const StyledSwitch = styled.div`
   height: 14px;
   background-color: ${({ marked, theme }: any) => (marked ? theme.markedBack : theme.unMarkedBack)};
   border-radius: 20px;
+  cursor: pointer;
 `;
 
 export const StyledMarker = styled.span`

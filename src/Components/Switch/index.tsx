@@ -18,8 +18,8 @@ function Switch() {
 
   return (
     <S.StyledWrapper>
-      <S.StyledContainer onClick={handleChange}>
-        <S.StyledSwitch {...{ marked: isMarked() }}>
+      <S.StyledContainer>
+        <S.StyledSwitch onClick={handleChange} {...{ marked: isMarked() }}>
           <S.StyledMarker id="switch-mode" {...{ marked: isMarked() }} />
         </S.StyledSwitch>
       </S.StyledContainer>
