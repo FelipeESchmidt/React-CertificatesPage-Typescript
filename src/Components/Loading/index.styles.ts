@@ -42,7 +42,6 @@ export const StyledTitle = styled.h3`
 
 export const Dots = styled.div`
   position: relative;
-  display: ${({ visible }: any) => (visible ? `block` : `none`)};
   width: 10px;
   height: 10px;
   margin-left: 10px;

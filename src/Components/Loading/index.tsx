@@ -21,18 +21,16 @@ const Loading = () => {
     };
   });
 
-  const shouldBeVisible = (selfNumber: number) => {
-    return dotsControl % dotsQuantity >= selfNumber;
-  };
+  const shouldBeVisible = () => (dotsControl % dotsQuantity) + 1;
 
   return (
     <StyledLoadingWrapper>
       <StyledLoading />
       <StyledTitleWrapper>
         <StyledTitle>Loading</StyledTitle>
-        <Dots {...{ visible: shouldBeVisible(0) }}>.</Dots>
-        <Dots {...{ visible: shouldBeVisible(1) }}>.</Dots>
-        <Dots {...{ visible: shouldBeVisible(2) }}>.</Dots>
+        {Array.from(Array(shouldBeVisible())).map((_, i) => (
+          <Dots data-testid="dots" key={`dot-${i}`} />
+        ))}
       </StyledTitleWrapper>
     </StyledLoadingWrapper>
   );
