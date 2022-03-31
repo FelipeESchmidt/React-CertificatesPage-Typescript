@@ -4,18 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '../../Styles/CommomStyles';
 import { fetchCertificates } from '../../Redux/App/App.actions';
 import { appSelector } from '../../Redux/App/App.selectors';
+import { baseFileURL, baseImageURL } from '../../Utils/baseUrlConstants';
 
 import { CertificateProps } from '../Certificate/index.types';
 import Certificate from '../Certificate';
 import Loading from '../Loading';
 import Switch from '../Switch';
 
-import {
-  baseFileURL,
-  baseImageURL,
-  certificatesTitle,
-  noCertificatesTitle,
-} from './index.constants';
+import { certificatesTitle, noCertificatesTitle } from './index.constants';
 import * as S from './index.styles';
 
 function Certificates() {
@@ -33,6 +29,7 @@ function Certificates() {
       {certificates.map((certificate: CertificateProps, index) => (
         <Certificate
           key={index}
+          id={certificate.id}
           fileSrc={`${baseFileURL}${certificate.fileSrc}`}
           imageSrc={`${baseImageURL}${certificate.imageSrc}`}
           imageAlt={certificate.imageAlt}
