@@ -29,7 +29,7 @@ export default function reducer(
     }
 
     case types.CERTIFICATES_LOADED: {
-      window.localStorage.setItem('certificates', action.certificates);
+      window.localStorage.setItem('certificates', JSON.stringify(action.certificates));
       return { ...state, certificates: action.certificates, loading: false };
     }
 
