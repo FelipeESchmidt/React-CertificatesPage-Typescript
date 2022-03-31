@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { makeServer } from '../../miragejs/server';
 import { store } from '../../Redux/store';
 
@@ -23,7 +24,9 @@ describe('Certificates > Unit', () => {
 
     render(
       <Provider store={store}>
-        <Certificates />
+        <Router>
+          <Certificates />
+        </Router>
       </Provider>,
     );
 
@@ -35,7 +38,9 @@ describe('Certificates > Unit', () => {
 
     render(
       <Provider store={store}>
-        <Certificates />
+        <Router>
+          <Certificates />
+        </Router>
       </Provider>,
     );
 
@@ -47,7 +52,9 @@ describe('Certificates > Unit', () => {
 
     render(
       <Provider store={store}>
-        <Certificates />
+        <Router>
+          <Certificates />
+        </Router>
       </Provider>,
     );
 
