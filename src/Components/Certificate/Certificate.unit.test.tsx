@@ -67,9 +67,8 @@ describe('Certificate > Unit', () => {
     const certificateInfo = {
       stacks: ['Stack 1', 'Stack 2', 'Stack 3'],
     };
-    const certificate: CertificateProps = server.create('certificate', {
-      info: { ...certificateInfo },
-    });
+    let certificate: CertificateProps = server.create('certificate');
+    certificate.info.stacks = certificateInfo.stacks;
 
     render(
       <Provider store={store}>

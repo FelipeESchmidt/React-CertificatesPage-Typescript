@@ -1,4 +1,5 @@
 import React from 'react';
+import { limitText } from '../../Utils/textFunctions';
 import { AccordeonInfoProps } from './index.types';
 import * as S from './index.styles';
 
@@ -20,7 +21,7 @@ function AccordeonInfo({ info }: { info: AccordeonInfoProps }) {
         )}
       </S.StyledTop>
       <S.StyledInfo {...{ open: open }}>
-        <S.StyledText>{info.description}</S.StyledText>
+        <S.StyledText>{limitText(info.description, 85)}</S.StyledText>
         <S.StyledStackList>
           {info.stacks.map((stack, index) => (
             <S.StyledStackItem key={index}>
