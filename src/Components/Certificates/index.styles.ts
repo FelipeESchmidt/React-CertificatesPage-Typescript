@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Certificates = styled.div`
+  min-height: calc(100vh - 190px);
   padding-bottom: 20px;
 `;
 
