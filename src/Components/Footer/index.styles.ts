@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { DiGithubAlt } from 'react-icons/di';
 
 export const StyledFooter = styled.div`
   margin-top: 10px;
@@ -35,5 +36,9 @@ export const GithubIcon = styled(BsGithub)`
 `;
 
 export const LinkedinIcon = styled(BsLinkedin)`
+  ${Icon};
+`;
+
+export const RepositoryIcon = styled(DiGithubAlt)`
   ${Icon};
 `;

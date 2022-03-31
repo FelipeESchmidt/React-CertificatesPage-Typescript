@@ -17,6 +17,9 @@ function Footer() {
           <S.Link href={links.github} target="blank">
             <S.GithubIcon />
           </S.Link>
+          <S.Link href={links.repository} target="blank">
+            <S.RepositoryIcon />
+          </S.Link>
           <S.Link href={links.linkedin} target="blank">
             <S.LinkedinIcon />
           </S.Link>
