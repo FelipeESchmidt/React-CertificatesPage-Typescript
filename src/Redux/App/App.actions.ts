@@ -24,7 +24,7 @@ const certificatesLoaded = (certificates: Array<CertificateProps>) => ({
 });
 
 export async function fetchCertificates(dispatch: ThunkDispatch<{}, {}, AnyAction>) {
-  dispatch(startRequest());
+  if (!window.localStorage.getItem('certificates')) dispatch(startRequest());
   const response = await getCertificates();
   dispatch(certificatesLoaded(response));
 }
