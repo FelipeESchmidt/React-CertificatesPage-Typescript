@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { CertificateProps } from '../Components/Certificate/index.types';
 
-// import { certificatesMock } from "./certificatesMock";
-
 const baseUrl =
   process.env.NODE_ENV === 'production' ? 'https://my-fs-backend-blog.herokuapp.com' : '';
 
@@ -18,5 +16,4 @@ export async function getCertificates() {
       .then((data) => resolve(data.certificates))
       .catch(reject);
   });
-  // return certificatesMock;
 }
