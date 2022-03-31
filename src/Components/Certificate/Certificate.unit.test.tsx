@@ -30,6 +30,7 @@ describe('Certificate > Unit', () => {
     render(
       <Provider store={store}>
         <Certificate
+          id={certificate.id}
           fileSrc={certificate.fileSrc}
           imageAlt={certificate.imageAlt}
           imageSrc={certificate.imageSrc}
@@ -52,6 +53,7 @@ describe('Certificate > Unit', () => {
     render(
       <Provider store={store}>
         <Certificate
+          id={certificate.id}
           fileSrc={certificate.fileSrc}
           imageAlt={certificate.imageAlt}
           imageSrc={certificate.imageSrc}
@@ -73,6 +75,7 @@ describe('Certificate > Unit', () => {
     render(
       <Provider store={store}>
         <Certificate
+          id={certificate.id}
           fileSrc={certificate.fileSrc}
           imageAlt={certificate.imageAlt}
           imageSrc={certificate.imageSrc}

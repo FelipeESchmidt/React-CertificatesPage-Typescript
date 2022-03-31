@@ -1,8 +1,9 @@
-import { AccordeonInfoProps } from "../AccordeonInfo/index.types";
+import { AccordeonInfoProps } from '../AccordeonInfo/index.types';
 
 export interface CertificateProps {
-    fileSrc: string;
-    imageSrc: string;
-    imageAlt: string;
-    info: AccordeonInfoProps;
+  id: number;
+  fileSrc: string;
+  imageSrc: string;
+  imageAlt: string;
+  info: AccordeonInfoProps;
 }
