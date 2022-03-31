@@ -12,6 +12,7 @@ export const StyledLoadingWrapper = styled.div`
   justify-content: center;
   width: 100%;
   padding: 80px;
+  box-sizing: border-box;
 `;
 
 export const StyledLoading = styled.div`
