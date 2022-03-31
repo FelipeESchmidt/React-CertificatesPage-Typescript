@@ -10,7 +10,6 @@ export const TopWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  padding: 0 10px;
 `;
 
 export const CertificateWrapper = styled.div`

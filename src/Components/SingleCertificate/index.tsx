@@ -6,6 +6,7 @@ import { fetchCertificates } from '../../Redux/App/App.actions';
 import { appSelector } from '../../Redux/App/App.selectors';
 import { baseImageURL } from '../../Utils/baseUrlConstants';
 
+import Breadcrumb, { buildBreadcrumbLink } from '../Breadcrumb';
 import Loading from '../Loading';
 import Switch from '../Switch';
 
@@ -59,7 +60,7 @@ function SingleCertificate() {
     <S.Certificate>
       <Container>
         <S.TopWrapper>
-          Home / Certificado
+          <Breadcrumb links={[buildBreadcrumbLink('Certificado', '')]}></Breadcrumb>
           <Switch />
         </S.TopWrapper>
         {loading ? <Loading /> : renderContent()}
