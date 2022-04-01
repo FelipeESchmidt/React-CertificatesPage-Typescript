@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
@@ -17,6 +17,7 @@ function AppRouter() {
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path={`/${certicicateRoute}/:id`} element={<CertificateScreen />} />
+        <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
