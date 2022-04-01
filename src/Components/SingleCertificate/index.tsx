@@ -24,7 +24,7 @@ function SingleCertificate() {
 
   React.useEffect(() => {
     if (certificates.length === 0) dispatch(fetchCertificates);
-    setCertificate(certificates.find((c) => c.id === id));
+    setCertificate(certificates.find((c) => c.id === parseInt(id!)));
     setLoaded(true);
   }, [dispatch, certificates, id]);
 
