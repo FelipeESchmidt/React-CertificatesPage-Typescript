@@ -76,6 +76,7 @@ export const StyledStackList = styled.ul`
 export const StyledStackItem = styled.li``;
 
 export const StyledSeeMore = styled.button`
+  width: 100%;
   line-height: ${({ open }: any) => (open ? '2.5em' : '0')};
   background-color: ${({ theme }) => theme.primary};
   border: 0;

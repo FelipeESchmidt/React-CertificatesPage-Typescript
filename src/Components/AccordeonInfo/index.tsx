@@ -2,8 +2,9 @@ import React from 'react';
 import { limitText } from '../../Utils/textFunctions';
 import { AccordeonInfoProps } from './index.types';
 import * as S from './index.styles';
+import { Link } from 'react-router-dom';
 
-function AccordeonInfo({ info }: { info: AccordeonInfoProps }) {
+function AccordeonInfo({ info, linkTo }: AccordeonInfoProps) {
   const [open, setOpen] = React.useState<boolean>(false);
 
   const handleToggleInfo = () => {
@@ -30,7 +31,9 @@ function AccordeonInfo({ info }: { info: AccordeonInfoProps }) {
           ))}
         </S.StyledStackList>
         <S.StyledText>Recebido em: {info.endDate}</S.StyledText>
-        <S.StyledSeeMore {...{ open: open }}>Mais detalhes</S.StyledSeeMore>
+        <Link to={linkTo}>
+          <S.StyledSeeMore {...{ open: open }}>Mais detalhes</S.StyledSeeMore>
+        </Link>
       </S.StyledInfo>
     </S.StyledWrapper>
   );

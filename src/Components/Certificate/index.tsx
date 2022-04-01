@@ -11,7 +11,7 @@ function Certificate({ imageSrc, imageAlt, info, id }: CertificateProps) {
       <Link to={`${certicicateRoute}/${id}`}>
         <S.CertificateImg src={imageSrc} alt={imageAlt} draggable={false} />
       </Link>
-      <AccordeonInfo info={info} />
+      <AccordeonInfo info={info} linkTo={`${certicicateRoute}/${id}`} />
     </S.Certificate>
   );
 }
