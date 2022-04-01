@@ -6,7 +6,7 @@ import SingleCertificate from '../../Components/SingleCertificate';
 function CertificateScreen() {
   return (
     <>
-      <Header />
+      <Header hideInput />
       <SingleCertificate />
       <Footer />
     </>
