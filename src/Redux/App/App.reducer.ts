@@ -1,10 +1,12 @@
 import { AnyAction } from 'redux';
 import { ThemeModes } from '../../Theme/index.theme';
 import * as types from './App.types';
+import { filterCertificates } from './App.utils';
 
 const swapMode = (state: types.AppTypes): ThemeModes => (state.mode === 'dark' ? 'light' : 'dark');
 
 const defaultAlert: types.AppTypes = {
+  allCertificates: [],
   certificates: [],
   loading: false,
   search: '',
@@ -17,7 +19,10 @@ export default function reducer(
 ): types.AppTypes {
   switch (action.type) {
     case types.SET_SEARCH: {
-      return { ...state, search: action.search };
+      const filteredCertificates = !!action.search
+        ? filterCertificates(state.allCertificates, action.search)
+        : state.allCertificates;
+      return { ...state, search: action.search, certificates: filteredCertificates };
     }
 
     case types.CHANGE_MODE: {
@@ -30,7 +35,12 @@ export default function reducer(
 
     case types.CERTIFICATES_LOADED: {
       window.localStorage.setItem('certificates', JSON.stringify(action.certificates));
-      return { ...state, certificates: action.certificates, loading: false };
+      return {
+        ...state,
+        certificates: action.certificates,
+        allCertificates: action.certificates,
+        loading: false,
+      };
     }
 
     default: {
