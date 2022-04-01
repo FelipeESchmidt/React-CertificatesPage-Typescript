@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { makeServer } from '../../miragejs/server';
 import { store } from '../../Redux/store';
@@ -29,13 +30,22 @@ describe('Certificate > Unit', () => {
 
     render(
       <Provider store={store}>
-        <Certificate
-          id={certificate.id}
-          fileSrc={certificate.fileSrc}
-          imageAlt={certificate.imageAlt}
-          imageSrc={certificate.imageSrc}
-          info={certificate.info}
-        />
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Certificate
+                  id={certificate.id}
+                  fileSrc={certificate.fileSrc}
+                  imageAlt={certificate.imageAlt}
+                  imageSrc={certificate.imageSrc}
+                  info={certificate.info}
+                />
+              }
+            />
+          </Routes>
+        </Router>
       </Provider>,
     );
 
@@ -52,13 +62,22 @@ describe('Certificate > Unit', () => {
 
     render(
       <Provider store={store}>
-        <Certificate
-          id={certificate.id}
-          fileSrc={certificate.fileSrc}
-          imageAlt={certificate.imageAlt}
-          imageSrc={certificate.imageSrc}
-          info={certificate.info}
-        />
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Certificate
+                  id={certificate.id}
+                  fileSrc={certificate.fileSrc}
+                  imageAlt={certificate.imageAlt}
+                  imageSrc={certificate.imageSrc}
+                  info={certificate.info}
+                />
+              }
+            />
+          </Routes>
+        </Router>
       </Provider>,
     );
 
@@ -74,13 +93,22 @@ describe('Certificate > Unit', () => {
 
     render(
       <Provider store={store}>
-        <Certificate
-          id={certificate.id}
-          fileSrc={certificate.fileSrc}
-          imageAlt={certificate.imageAlt}
-          imageSrc={certificate.imageSrc}
-          info={certificate.info}
-        />
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Certificate
+                  id={certificate.id}
+                  fileSrc={certificate.fileSrc}
+                  imageAlt={certificate.imageAlt}
+                  imageSrc={certificate.imageSrc}
+                  info={certificate.info}
+                />
+              }
+            />
+          </Routes>
+        </Router>
       </Provider>,
     );
 
