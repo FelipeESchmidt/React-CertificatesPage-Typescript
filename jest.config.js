@@ -13,5 +13,6 @@ module.exports = {
     '<rootDir>/src/Screens/**/*.tsx',
     '<rootDir>/src/Redux/**/*.tsx',
     '<rootDir>/src/Utils/**/*.ts',
+    '<rootDir>/src/Redux/**/*.ts',
   ],
 };
