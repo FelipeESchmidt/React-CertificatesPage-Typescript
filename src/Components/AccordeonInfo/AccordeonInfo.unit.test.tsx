@@ -1,4 +1,5 @@
 import 'jest-styled-components';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
@@ -23,7 +24,9 @@ describe('AccordeonInfo > Unit', () => {
     const { info } = server.create('certificate');
     render(
       <Provider store={store}>
-        <AccordeonInfo info={info} />
+        <Router>
+          <AccordeonInfo info={info} linkTo="" />
+        </Router>
       </Provider>,
     );
 
@@ -36,7 +39,9 @@ describe('AccordeonInfo > Unit', () => {
     const { info } = server.create('certificate');
     render(
       <Provider store={store}>
-        <AccordeonInfo info={info} />
+        <Router>
+          <AccordeonInfo info={info} linkTo="" />
+        </Router>
       </Provider>,
     );
 
@@ -52,7 +57,9 @@ describe('AccordeonInfo > Unit', () => {
     const { info } = server.create('certificate');
     render(
       <Provider store={store}>
-        <AccordeonInfo info={info} />
+        <Router>
+          <AccordeonInfo info={info} linkTo="" />
+        </Router>
       </Provider>,
     );
 
