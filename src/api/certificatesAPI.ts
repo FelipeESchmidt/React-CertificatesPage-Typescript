@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { CertificateProps } from '../Components/Certificate/index.types';
+import { getBaseUrl } from './baseUrl';
 
-const baseUrl =
-  process.env.NODE_ENV === 'production' ? 'https://my-fs-backend-blog.herokuapp.com' : '';
+const baseUrl = getBaseUrl();
 
 const headers = {
   Accept: 'application/json',
