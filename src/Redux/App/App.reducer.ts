@@ -43,6 +43,10 @@ export default function reducer(
       };
     }
 
+    case types.CERTIFICATES_LOADED_WITH_ERROR: {
+      return { ...state, loading: false };
+    }
+
     default: {
       return state;
     }

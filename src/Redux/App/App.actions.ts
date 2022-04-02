@@ -23,6 +23,10 @@ const certificatesLoaded = (certificates: Array<CertificateProps>) => ({
   certificates,
 });
 
+const certificatesLoadedWithError = () => ({
+  type: types.CERTIFICATES_LOADED_WITH_ERROR,
+});
+
 export async function fetchCertificates(dispatch: ThunkDispatch<{}, {}, AnyAction>) {
   const localCertificates = window.localStorage.getItem('certificates');
   if (!localCertificates) {
@@ -30,6 +34,7 @@ export async function fetchCertificates(dispatch: ThunkDispatch<{}, {}, AnyActio
   } else {
     dispatch(certificatesLoaded(JSON.parse(localCertificates)));
   }
-  const response = await getCertificates();
-  dispatch(certificatesLoaded(response));
+  getCertificates()
+    .then((response) => dispatch(certificatesLoaded(response)))
+    .catch(() => dispatch(certificatesLoadedWithError()));
 }
