@@ -22,7 +22,11 @@ function Certificates() {
     dispatch(fetchCertificates);
   }, [dispatch]);
 
-  const renderEmptyList = () => <>{noCertificatesTitle}</>;
+  const renderEmptyList = () => (
+    <S.CertificatesEmptyWrapper>
+      <S.CertificatesEmptyText>{noCertificatesTitle}</S.CertificatesEmptyText>
+    </S.CertificatesEmptyWrapper>
+  );
 
   const renderCertificates = () => (
     <S.CertificatesWrapper>

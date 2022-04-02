@@ -18,6 +18,17 @@ export const CertificatesTitle = styled.h2`
   padding: 20px 0;
 `;
 
+export const CertificatesEmptyWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 80px 0;
+  justify-content: center;
+`;
+
+export const CertificatesEmptyText = styled.h2`
+  color: ${({ theme }) => theme.white};
+`;
+
 export const CertificatesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
