@@ -6,7 +6,7 @@ import App from './Screens/App';
 import { store } from './Redux/store';
 import GlobalStyle from './Styles/GlobalStyles';
 
-if (process.env.NODE_ENV === 'development') {
+if (window.location.port === '3000') {
   require('./miragejs/server').makeServer();
 }
 
