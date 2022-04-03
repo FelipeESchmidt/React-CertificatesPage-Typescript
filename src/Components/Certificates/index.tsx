@@ -34,6 +34,7 @@ function Certificates() {
         <Certificate
           key={index}
           id={certificate.id}
+          courseUrl={certificate.courseUrl}
           fileSrc={`${baseFileURL}${certificate.fileSrc}`}
           imageSrc={`${baseImageURL}${certificate.imageSrc}`}
           imageAlt={certificate.imageAlt}

@@ -38,6 +38,7 @@ describe('Certificate > Unit', () => {
                 <Certificate
                   id={certificate.id}
                   fileSrc={certificate.fileSrc}
+                  courseUrl={certificate.courseUrl}
                   imageAlt={certificate.imageAlt}
                   imageSrc={certificate.imageSrc}
                   info={certificate.info}
@@ -70,6 +71,7 @@ describe('Certificate > Unit', () => {
                 <Certificate
                   id={certificate.id}
                   fileSrc={certificate.fileSrc}
+                  courseUrl={certificate.courseUrl}
                   imageAlt={certificate.imageAlt}
                   imageSrc={certificate.imageSrc}
                   info={certificate.info}
@@ -101,6 +103,7 @@ describe('Certificate > Unit', () => {
                 <Certificate
                   id={certificate.id}
                   fileSrc={certificate.fileSrc}
+                  courseUrl={certificate.courseUrl}
                   imageAlt={certificate.imageAlt}
                   imageSrc={certificate.imageSrc}
                   info={certificate.info}

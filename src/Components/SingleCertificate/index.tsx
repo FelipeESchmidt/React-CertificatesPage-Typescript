@@ -29,7 +29,7 @@ function SingleCertificate() {
   }, [dispatch, certificates, id]);
 
   const renderUndefinedCertificate = () => <Navigate to="/" replace />;
-
+  console.log(certificate);
   const renderCertificate = () =>
     certificate && (
       <S.CertificateWrapper>
@@ -40,10 +40,10 @@ function SingleCertificate() {
             draggable={false}
           />
           <S.ButtonsWrapper>
-            <S.Button href={`${baseImageURL}${certificate.imageSrc}`} target="blank">
+            <S.Button href={certificate.courseUrl} target="blank">
               Conheça o curso
             </S.Button>
-            <S.Button href={`${baseImageURL}${certificate.imageSrc}`} target="blank">
+            <S.Button href={certificate.fileSrc} target="blank">
               Certificado
             </S.Button>
           </S.ButtonsWrapper>

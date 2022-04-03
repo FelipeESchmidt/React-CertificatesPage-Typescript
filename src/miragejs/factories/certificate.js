@@ -20,6 +20,9 @@ const certificateFactory = {
     fileSrc() {
       return faker.internet.url();
     },
+    courseUrl() {
+      return faker.internet.url();
+    },
     imageSrc() {
       return images[randomNumber(images.length - 1)];
     },
