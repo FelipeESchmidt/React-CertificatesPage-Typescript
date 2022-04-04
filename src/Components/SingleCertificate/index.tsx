@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '../../Styles/CommomStyles';
 import { fetchCertificates } from '../../Redux/App/App.actions';
 import { appSelector } from '../../Redux/App/App.selectors';
-import { baseImageURL } from '../../Utils/baseUrlConstants';
+import { baseFileURL, baseImageURL } from '../../Utils/baseUrlConstants';
 
 import { CertificateProps } from '../Certificate/index.types';
 import Breadcrumb, { buildBreadcrumbLink } from '../Breadcrumb';
@@ -43,7 +43,7 @@ function SingleCertificate() {
             <S.Button href={certificate.courseUrl} target="blank">
               Conheça o curso
             </S.Button>
-            <S.Button href={certificate.fileSrc} target="blank">
+            <S.Button href={`${baseFileURL}${certificate.fileSrc}`} target="blank">
               Certificado
             </S.Button>
           </S.ButtonsWrapper>
