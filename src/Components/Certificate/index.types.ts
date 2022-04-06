@@ -2,9 +2,9 @@ import { InfoProps } from '../AccordeonInfo/index.types';
 
 export interface CertificateProps {
   id: string;
-  fileSrc: string;
+  certificateImg: string;
   courseUrl: string;
-  imageSrc: string;
+  courseImg: string;
   imageAlt: string;
   info: InfoProps;
 }

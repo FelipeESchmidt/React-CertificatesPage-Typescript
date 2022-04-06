@@ -37,10 +37,10 @@ describe('Certificate > Unit', () => {
               element={
                 <Certificate
                   id={certificate.id}
-                  fileSrc={certificate.fileSrc}
+                  certificateImg={certificate.certificateImg}
                   courseUrl={certificate.courseUrl}
                   imageAlt={certificate.imageAlt}
-                  imageSrc={certificate.imageSrc}
+                  courseImg={certificate.courseImg}
                   info={certificate.info}
                 />
               }
@@ -70,10 +70,10 @@ describe('Certificate > Unit', () => {
               element={
                 <Certificate
                   id={certificate.id}
-                  fileSrc={certificate.fileSrc}
+                  certificateImg={certificate.certificateImg}
                   courseUrl={certificate.courseUrl}
                   imageAlt={certificate.imageAlt}
-                  imageSrc={certificate.imageSrc}
+                  courseImg={certificate.courseImg}
                   info={certificate.info}
                 />
               }
@@ -102,10 +102,10 @@ describe('Certificate > Unit', () => {
               element={
                 <Certificate
                   id={certificate.id}
-                  fileSrc={certificate.fileSrc}
+                  certificateImg={certificate.certificateImg}
                   courseUrl={certificate.courseUrl}
                   imageAlt={certificate.imageAlt}
-                  imageSrc={certificate.imageSrc}
+                  courseImg={certificate.courseImg}
                   info={certificate.info}
                 />
               }

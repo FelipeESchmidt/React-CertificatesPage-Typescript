@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '../../Styles/CommomStyles';
 import { fetchCertificates } from '../../Redux/App/App.actions';
 import { appSelector } from '../../Redux/App/App.selectors';
-import { baseFileURL, baseImageURL } from '../../Utils/baseUrlConstants';
 
 import { CertificateProps } from '../Certificate/index.types';
 import Certificate from '../Certificate';
@@ -35,8 +34,8 @@ function Certificates() {
           key={index}
           id={certificate.id}
           courseUrl={certificate.courseUrl}
-          fileSrc={`${baseFileURL}${certificate.fileSrc}`}
-          imageSrc={`${baseImageURL}${certificate.imageSrc}`}
+          certificateImg={certificate.certificateImg}
+          courseImg={certificate.courseImg}
           imageAlt={certificate.imageAlt}
           info={certificate.info}
         />

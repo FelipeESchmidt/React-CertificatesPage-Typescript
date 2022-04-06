@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '../../Styles/CommomStyles';
 import { fetchCertificates } from '../../Redux/App/App.actions';
 import { appSelector } from '../../Redux/App/App.selectors';
-import { baseFileURL, baseImageURL } from '../../Utils/baseUrlConstants';
 
 import { CertificateProps } from '../Certificate/index.types';
 import Breadcrumb, { buildBreadcrumbLink } from '../Breadcrumb';
@@ -35,7 +34,7 @@ function SingleCertificate() {
       <S.CertificateWrapper>
         <S.LeftWrapper>
           <S.CertificateImg
-            src={`${baseImageURL}${certificate.imageSrc}`}
+            src={certificate.courseImg}
             alt={certificate.imageAlt}
             draggable={false}
           />
@@ -43,7 +42,7 @@ function SingleCertificate() {
             <S.Button href={certificate.courseUrl} target="blank">
               Conheça o curso
             </S.Button>
-            <S.Button href={`${baseFileURL}${certificate.fileSrc}`} target="blank">
+            <S.Button href={certificate.certificateImg} target="blank">
               Certificado
             </S.Button>
           </S.ButtonsWrapper>

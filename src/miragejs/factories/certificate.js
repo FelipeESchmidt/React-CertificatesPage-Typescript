@@ -22,13 +22,13 @@ const images = [
 
 const certificateFactory = {
   certificate: Factory.extend({
-    fileSrc() {
+    certificateImg() {
       return faker.internet.url();
     },
     courseUrl() {
       return faker.internet.url();
     },
-    imageSrc() {
+    courseImg() {
       return images[randomNumber(images.length - 1)];
     },
     imageAlt() {

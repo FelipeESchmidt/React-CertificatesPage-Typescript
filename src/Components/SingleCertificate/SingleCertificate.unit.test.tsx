@@ -35,8 +35,8 @@ describe('SingleCertificate > Unit', () => {
   const createCertificatesInServer = () => {
     server.createList('certificate', 10);
     server.create('certificate', {
-      fileSrc: 'FullStack-OneBitCode.pdf',
-      imageSrc: 'OneBitCode.png',
+      certificateImg: 'FullStack-OneBitCode.pdf',
+      courseImg: 'OneBitCode.png',
       imageAlt: 'Certificado OneBitCode',
       info: {
         description:
