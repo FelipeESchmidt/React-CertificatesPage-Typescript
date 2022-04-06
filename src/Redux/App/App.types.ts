@@ -14,3 +14,17 @@ export interface AppTypes {
   search: string;
   mode: ThemeModes;
 }
+
+export interface CertificateResponseTypes {
+  info: {
+    description: string;
+    endDate: string;
+    stacks: [string];
+    title: string;
+  };
+  imageAlt: string;
+  courseImg: string;
+  courseUrl: string;
+  certificateImg: string;
+  _id: string;
+}

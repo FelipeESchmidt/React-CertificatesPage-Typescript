@@ -3,6 +3,7 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import { getCertificates } from '../../api/certificatesAPI';
 import { CertificateProps } from '../../Components/Certificate/index.types';
+import { normalizeCertificates } from './App.normalizer';
 import * as types from './App.types';
 
 export const setSearch = (search: string) => ({
@@ -35,6 +36,7 @@ export async function fetchCertificates(dispatch: ThunkDispatch<{}, {}, AnyActio
     dispatch(certificatesLoaded(JSON.parse(localCertificates)));
   }
   getCertificates()
-    .then((response) => dispatch(certificatesLoaded(response)))
+    .then((response: any) => normalizeCertificates(response))
+    .then((certificates) => dispatch(certificatesLoaded(certificates)))
     .catch(() => dispatch(certificatesLoadedWithError()));
 }
