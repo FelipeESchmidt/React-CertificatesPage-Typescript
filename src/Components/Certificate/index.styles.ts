@@ -18,7 +18,10 @@ export const Certificate = styled.div`
 
 export const CertificateImg = styled.img`
   width: 100%;
+  min-width: 100%;
   height: calc(100vh / 4);
+  min-height: calc(100vh / 4);
+
   object-fit: cover;
   vertical-align: middle;
   transition-duration: 300ms;
@@ -27,6 +30,11 @@ export const CertificateImg = styled.img`
   cursor: pointer;
 
   box-shadow: 0px 0px 2px 2px ${({ theme }) => theme.darkGray};
+
+  /* NOT LOADED */
+  background-position: center;
+  background: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.white};
 
   :hover {
     transform: scale(1.02);

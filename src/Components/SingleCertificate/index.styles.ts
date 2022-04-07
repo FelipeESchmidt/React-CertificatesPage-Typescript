@@ -53,11 +53,21 @@ export const RightWrapper = styled.div`
 
 export const CertificateImg = styled.img`
   width: 100%;
+  min-width: 100%;
   height: calc(100vh / 4);
+  min-height: calc(100vh / 4);
+
   object-fit: cover;
   vertical-align: middle;
+
   box-shadow: 0px 0px 2px 2px ${({ theme }) => theme.darkGray};
   user-select: none;
+
+  /* NOT LOADED */
+  background-position: center;
+  background: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.white};
+
   ${mediaMid} {
     height: calc(100vh / 3.5);
   }
