@@ -5,7 +5,7 @@ export const filterCertificates = (
   filterBy: string,
 ): Array<CertificateProps> => {
   const filteredCertificates = certificatesList.filter((certificate) =>
-    JSON.stringify(certificate).includes(filterBy),
+    JSON.stringify(certificate).toLocaleLowerCase().includes(filterBy.toLocaleLowerCase()),
   );
 
   return filteredCertificates;
