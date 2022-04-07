@@ -13,7 +13,12 @@ export const normalizeCertificates = (
         courseUrl: certificate.courseUrl,
         id: certificate._id,
         imageAlt: certificate.imageAlt,
-        info: certificate.info,
+        info: {
+          description: certificate.description,
+          endDate: certificate.endDate,
+          stacks: certificate.stacks,
+          title: certificate.title,
+        },
       }),
     );
   return certificatesNormalized;

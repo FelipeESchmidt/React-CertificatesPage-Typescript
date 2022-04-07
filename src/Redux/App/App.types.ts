@@ -16,12 +16,10 @@ export interface AppTypes {
 }
 
 export interface CertificateResponseTypes {
-  info: {
-    description: string;
-    endDate: string;
-    stacks: [string];
-    title: string;
-  };
+  description: string;
+  endDate: string;
+  stacks: [string];
+  title: string;
   imageAlt: string;
   courseImg: string;
   courseUrl: string;
