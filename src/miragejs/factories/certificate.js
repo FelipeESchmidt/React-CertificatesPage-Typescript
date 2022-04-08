@@ -13,6 +13,9 @@ const images = [
 
 const certificateFactory = {
   certificate: Factory.extend({
+    _id() {
+      return faker.random.alphaNumeric(24);
+    },
     certificateImg() {
       return faker.internet.url();
     },
