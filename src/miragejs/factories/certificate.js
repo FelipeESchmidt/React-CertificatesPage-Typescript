@@ -35,7 +35,7 @@ const certificateFactory = {
       return new Date(faker.date.past()).toLocaleDateString();
     },
     stacks() {
-      return [faker.lorem.word(), faker.lorem.word(), faker.lorem.word(), faker.lorem.word()];
+      return Array.from(Array(randomNumber(4) + 2)).map(() => faker.lorem.word());
     },
     title() {
       return faker.lorem.lines(1);
