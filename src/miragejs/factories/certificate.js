@@ -5,19 +5,10 @@ import { faker } from '@faker-js/faker';
 import { randomNumber } from './utils';
 
 const images = [
-  'Back-End.jpg',
-  'Dev-ops.jpg',
-  'Evernote.png',
-  'Formacao-Front-End.png',
-  'Formacao-HTML-CSS.png',
-  'Formacao-React.png',
-  'Formacao-Seguranca.png',
-  'Front-End.png',
-  'Javascript.jpg',
-  'Puppet-Basico.jpg',
-  'Vedovelli1.jpg',
-  'Vedovelli2.jpg',
-  'Web-Design.png',
+  'https://cursos.dankicode.com/app/Views/public/images/uploads/cursos/599083332ff1a.png',
+  'https://programador.onebitcode.com/images/share-fb.png',
+  'https://classes.vedovelli.com.br/simon-abrams-k_T9Zj3SE8k-unsplash.jpg',
+  'https://img-c.udemycdn.com/course/240x135/1691424_acf4_6.jpg',
 ];
 
 const certificateFactory = {
@@ -34,19 +25,17 @@ const certificateFactory = {
     imageAlt() {
       return faker.lorem.words();
     },
-    info: {
-      description() {
-        return faker.lorem.paragraph();
-      },
-      endDate() {
-        return new Date(faker.date.past()).toLocaleDateString();
-      },
-      stacks() {
-        return [faker.lorem.word(), faker.lorem.word(), faker.lorem.word(), faker.lorem.word()];
-      },
-      title() {
-        return faker.lorem.lines(1);
-      },
+    description() {
+      return faker.lorem.paragraph();
+    },
+    endDate() {
+      return new Date(faker.date.past()).toLocaleDateString();
+    },
+    stacks() {
+      return [faker.lorem.word(), faker.lorem.word(), faker.lorem.word(), faker.lorem.word()];
+    },
+    title() {
+      return faker.lorem.lines(1);
     },
   }),
 };
