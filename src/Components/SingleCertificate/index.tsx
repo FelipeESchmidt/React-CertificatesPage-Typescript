@@ -22,13 +22,16 @@ function SingleCertificate() {
   const [loaded, setLoaded] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    if (certificates.length === 0) dispatch(fetchCertificates);
-    setCertificate(certificates.find((c) => c.id === id));
-    setLoaded(true);
+    if (certificates.length === 0) {
+      dispatch(fetchCertificates);
+    } else {
+      setCertificate(certificates.find((c) => c.id === id));
+      setLoaded(true);
+    }
   }, [dispatch, certificates, id]);
 
   const renderUndefinedCertificate = () => <Navigate to="/" replace />;
-  console.log(certificate);
+
   const renderCertificate = () =>
     certificate && (
       <S.CertificateWrapper>
