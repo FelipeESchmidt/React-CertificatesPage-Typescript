@@ -9,6 +9,10 @@ const images = [
   'https://programador.onebitcode.com/images/share-fb.png',
   'https://classes.vedovelli.com.br/simon-abrams-k_T9Zj3SE8k-unsplash.jpg',
   'https://img-c.udemycdn.com/course/240x135/1691424_acf4_6.jpg',
+  'https://uploaddeimagens.com.br/images/003/821/365/full/HTML_CSS.png',
+  'https://uploaddeimagens.com.br/images/003/821/370/full/Front-end.png',
+  'https://uploaddeimagens.com.br/images/003/821/379/full/ReactJS.png',
+  'https://uploaddeimagens.com.br/images/003/821/385/full/Seguranca.png',
 ];
 
 const certificateFactory = {
@@ -23,7 +27,7 @@ const certificateFactory = {
       return faker.internet.url();
     },
     courseImg() {
-      return images[randomNumber(images.length - 1)];
+      return images[randomNumber(images.length - 1) - 1];
     },
     imageAlt() {
       return faker.lorem.words();
@@ -39,6 +43,9 @@ const certificateFactory = {
     },
     title() {
       return faker.lorem.lines(1);
+    },
+    percentage() {
+      return 100 - (randomNumber(8) - 1) * (randomNumber(7) + 5);
     },
   }),
 };
