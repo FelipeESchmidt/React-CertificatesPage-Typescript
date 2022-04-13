@@ -38,6 +38,7 @@ function Certificates() {
           courseImg={certificate.courseImg}
           imageAlt={certificate.imageAlt}
           info={certificate.info}
+          status={certificate.status}
         />
       ))}
     </S.CertificatesWrapper>
