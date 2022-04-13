@@ -1,5 +1,10 @@
 import { InfoProps } from '../AccordeonInfo/index.types';
 
+export interface CertificateStatus {
+  complete: boolean;
+  percentage: number;
+}
+
 export interface CertificateProps {
   id: string;
   certificateImg: string;
@@ -7,4 +12,5 @@ export interface CertificateProps {
   courseImg: string;
   imageAlt: string;
   info: InfoProps;
+  status: CertificateStatus;
 }
