@@ -21,11 +21,11 @@ describe('AccordeonInfo > Unit', () => {
   });
 
   it('should render title and icon to open', async () => {
-    const { info } = server.create('certificate');
+    const { info, status } = server.create('certificate');
     render(
       <Provider store={store}>
         <Router>
-          <AccordeonInfo info={info} linkTo="" />
+          <AccordeonInfo info={info} status={status} linkTo="" />
         </Router>
       </Provider>,
     );
@@ -36,11 +36,11 @@ describe('AccordeonInfo > Unit', () => {
   });
 
   it('should toggle when handleToggleInfo() is called', async () => {
-    const { info } = server.create('certificate');
+    const { info, status } = server.create('certificate');
     render(
       <Provider store={store}>
         <Router>
-          <AccordeonInfo info={info} linkTo="" />
+          <AccordeonInfo info={info} status={status} linkTo="" />
         </Router>
       </Provider>,
     );
@@ -54,11 +54,11 @@ describe('AccordeonInfo > Unit', () => {
   });
 
   it('should toggle while handleToggleInfo() is being called', async () => {
-    const { info } = server.create('certificate');
+    const { info, status } = server.create('certificate');
     render(
       <Provider store={store}>
         <Router>
-          <AccordeonInfo info={info} linkTo="" />
+          <AccordeonInfo info={info} status={status} linkTo="" />
         </Router>
       </Provider>,
     );

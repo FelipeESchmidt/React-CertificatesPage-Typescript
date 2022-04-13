@@ -4,7 +4,7 @@ import { AccordeonInfoProps } from './index.types';
 import * as S from './index.styles';
 import { Link } from 'react-router-dom';
 
-function AccordeonInfo({ info, linkTo }: AccordeonInfoProps) {
+function AccordeonInfo({ info, status, linkTo }: AccordeonInfoProps) {
   const [open, setOpen] = React.useState<boolean>(false);
 
   const handleToggleInfo = () => {
@@ -30,7 +30,7 @@ function AccordeonInfo({ info, linkTo }: AccordeonInfoProps) {
             </S.StyledStackItem>
           ))}
         </S.StyledStackList>
-        <S.StyledText>Recebido em: {info.endDate}</S.StyledText>
+        {status.complete && <S.StyledText>Recebido em: {info.endDate}</S.StyledText>}
         <Link to={linkTo}>
           <S.StyledSeeMore {...{ open: open }}>Mais detalhes</S.StyledSeeMore>
         </Link>
