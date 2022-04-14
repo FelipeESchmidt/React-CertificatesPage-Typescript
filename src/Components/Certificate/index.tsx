@@ -8,7 +8,7 @@ import { CertificateProps } from './index.types';
 function Certificate({ courseImg, imageAlt, info, id, status }: CertificateProps) {
   return (
     <S.Certificate data-testid="certificate">
-      <S.Percentage status={status}>
+      <S.Percentage data-testid="percentage" status={status}>
         <span />
       </S.Percentage>
       <Link to={`${certicicateRoute}/${id}`}>
