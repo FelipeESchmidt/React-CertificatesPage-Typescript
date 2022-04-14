@@ -41,7 +41,9 @@ function SingleCertificate({ certificate }: SingleCertificateProps) {
               </S.StyledStackItem>
             ))}
           </S.StyledStackList>
-          <S.StyledText>Recebido em: {certificate.info.endDate}</S.StyledText>
+          {certificate.status.complete && (
+            <S.StyledText>Recebido em: {certificate.info.endDate}</S.StyledText>
+          )}
         </S.RightWrapper>
       </S.CertificateWrapper>
     );
