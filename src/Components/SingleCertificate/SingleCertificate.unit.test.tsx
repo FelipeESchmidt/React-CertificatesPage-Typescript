@@ -18,7 +18,6 @@ describe('SingleCertificate > Unit', () => {
   afterEach(() => {
     server.shutdown();
     server.delete('certificate');
-    localStorage.removeItem('certificates');
   });
 
   const renderComponent = (percentage: number = 100) => {
