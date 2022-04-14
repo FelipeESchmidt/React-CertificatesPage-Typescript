@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { makeServer } from '../../miragejs/server';
@@ -48,7 +48,7 @@ describe('Certificates > Unit', () => {
     expect(await screen.findAllByTestId('certificate')).toHaveLength(8);
   });
 
-  it('should show "no certificates" message', (done) => {
+  it('should show "no certificates" message', async () => {
     server.createList('certificate', 0);
 
     render(
@@ -59,11 +59,12 @@ describe('Certificates > Unit', () => {
       </Provider>,
     );
 
-    setTimeout(() => {
+    await waitFor(() => {
       expect(screen.queryAllByTestId('certificate')).toHaveLength(0);
+    });
+    await waitFor(() => {
       expect(screen.getByText(noCertificatesTitle)).toBeInTheDocument();
-      done();
-    }, 10);
+    });
   });
 
   it('should filter certificates after typing term on input', (done) => {
