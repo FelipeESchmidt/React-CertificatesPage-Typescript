@@ -45,9 +45,13 @@ function SingleCertificate() {
             <S.Button href={certificate.courseUrl} target="blank">
               Conheça o curso
             </S.Button>
-            <S.Button href={certificate.certificateImg} target="blank">
-              Certificado
-            </S.Button>
+            {certificate.status.complete ? (
+              <S.Button href={certificate.certificateImg} target="blank">
+                Certificado
+              </S.Button>
+            ) : (
+              <S.StyledText>Em desenvolvimento: {certificate.status.percentage}%</S.StyledText>
+            )}
           </S.ButtonsWrapper>
         </S.LeftWrapper>
         <S.RightWrapper>

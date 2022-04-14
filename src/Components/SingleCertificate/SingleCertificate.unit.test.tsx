@@ -6,6 +6,8 @@ import { store } from '../../Redux/store';
 
 import SingleCertificate from './index';
 
+const id = 'oa9af7ai7ym1ynt3pq4aedan';
+
 describe('SingleCertificate > Unit', () => {
   let server: any;
 
@@ -18,13 +20,13 @@ describe('SingleCertificate > Unit', () => {
     server.shutdown();
   });
 
-  const renderComponent = (createCertificates: boolean = false) => {
-    if (createCertificates) createCertificatesInServer();
+  const renderComponent = (createCertificates: boolean = false, overrides: any = {}) => {
+    if (createCertificates) createCertificatesInServer(overrides);
     render(
       <Provider store={store}>
         <Router>
           <Routes>
-            <Route path="/" element={<Navigate to="/certificado/11" replace />} />
+            <Route path="/" element={<Navigate to={`/certificado/${id}`} replace />} />
             <Route path="/certificado/:id" element={<SingleCertificate />} />
           </Routes>
         </Router>
@@ -32,19 +34,20 @@ describe('SingleCertificate > Unit', () => {
     );
   };
 
-  const createCertificatesInServer = () => {
+  const createCertificatesInServer = (overrides: any) => {
     server.createList('certificate', 10);
     server.create('certificate', {
+      _id: id,
       certificateImg: 'FullStack-OneBitCode.pdf',
       courseImg: 'OneBitCode.png',
       imageAlt: 'Certificado OneBitCode',
-      info: {
-        description:
-          'Dolore fugiat adipisicing velit officia amet minim labore ex aute cupidatat eiusmod et reprehenderit. Lorem',
-        endDate: '20/03/2022',
-        stacks: ['React', 'Node'],
-        title: 'Titulo muito grande',
-      },
+      description:
+        'Dolore fugiat adipisicing velit officia amet minim labore ex aute cupidatat eiusmod et reprehenderit. Lorem',
+      endDate: '20/03/2022',
+      stacks: ['React', 'Node'],
+      title: 'Titulo muito grande',
+      percentage: 100,
+      ...overrides,
     });
   };
 
@@ -95,6 +98,15 @@ describe('SingleCertificate > Unit', () => {
 
     await waitFor(() => {
       expect(screen.getByText('Recebido em: 20/03/2022')).toBeInTheDocument();
+    });
+  });
+
+  fit('should display "Em desenvolvimento" when status is not complete', async () => {
+    const percentage = 30;
+    renderComponent(true, { percentage });
+
+    await waitFor(() => {
+      expect(screen.getByText(`Em desenvolvimento: ${percentage}%`)).toBeInTheDocument();
     });
   });
 });
