@@ -18,7 +18,7 @@ function Certificates() {
   const { certificates, loading } = useSelector(appSelector);
 
   React.useEffect(() => {
-    if (!!!certificates) {
+    if (!!!certificates.length) {
       dispatch(fetchCertificates);
     }
   }, [dispatch, certificates]);
