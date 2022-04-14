@@ -34,8 +34,6 @@ export default function reducer(
     }
 
     case types.CERTIFICATES_LOADED: {
-      if (action.certificates)
-        window.localStorage.setItem('certificates', JSON.stringify(action.certificates));
       return {
         ...state,
         certificates: action.certificates,

@@ -4,7 +4,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { makeServer } from '../../miragejs/server';
 import { setSearch } from '../../Redux/App/App.actions';
 import { store } from '../../Redux/store';
-import { CertificateProps } from '../Certificate/index.types';
 
 import Certificates from './index';
 import { noCertificatesTitle } from './index.constants';
@@ -67,11 +66,12 @@ describe('Certificates > Unit', () => {
     }, 10);
   });
 
-  fit('should filter certificates after typing term on input', (done) => {
+  it('should filter certificates after typing term on input', (done) => {
     const stack = 'React with Redux';
     server.createList('certificate', 9);
-    let certificate: CertificateProps = server.create('certificate');
-    certificate.info.stacks = [stack];
+    server.create('certificate', {
+      stacks: [stack],
+    });
 
     render(
       <Provider store={store}>

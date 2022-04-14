@@ -1,7 +1,8 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { render, screen, waitFor } from '@testing-library/react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { makeServer } from '../../miragejs/server';
+import { normalizeCertificates } from '../../Redux/App/App.normalizer';
 import { store } from '../../Redux/store';
 
 import SingleCertificate from './index';
@@ -16,49 +17,55 @@ describe('SingleCertificate > Unit', () => {
 
   afterEach(() => {
     server.shutdown();
+    server.delete('certificate');
   });
 
-  const renderComponent = (createCertificates: boolean = false) => {
-    if (createCertificates) createCertificatesInServer();
+  const renderComponent = (percentage: number = 100) => {
+    let certificate = createCertificatesInServer(percentage);
     render(
       <Provider store={store}>
         <Router>
           <Routes>
-            <Route path="/" element={<Navigate to="/certificado/11" replace />} />
-            <Route path="/certificado/:id" element={<SingleCertificate />} />
+            <Route path="/" element={<SingleCertificate certificate={certificate} />} />
           </Routes>
         </Router>
       </Provider>,
     );
   };
 
-  const createCertificatesInServer = () => {
-    server.createList('certificate', 10);
-    server.create('certificate', {
+  const createCertificatesInServer = (percentage: number) => {
+    const createdCertificated = server.create('certificate', {
+      _id: 'oa9af7ai7ym1ynt3pq4aedan',
       certificateImg: 'FullStack-OneBitCode.pdf',
       courseImg: 'OneBitCode.png',
       imageAlt: 'Certificado OneBitCode',
-      info: {
-        description:
-          'Dolore fugiat adipisicing velit officia amet minim labore ex aute cupidatat eiusmod et reprehenderit. Lorem',
-        endDate: '20/03/2022',
-        stacks: ['React', 'Node'],
-        title: 'Titulo muito grande',
-      },
+      description:
+        'Dolore fugiat adipisicing velit officia amet minim labore ex aute cupidatat eiusmod et reprehenderit. Lorem',
+      endDate: '20/03/2022',
+      stacks: ['React', 'Node'],
+      title: 'Titulo muito grande',
+      percentage,
     });
+    return normalizeCertificates([createdCertificated])[0];
   };
 
-  it('should render the loading', () => {
+  it('should the breadcrumb', async () => {
     renderComponent();
 
-    expect(screen.getByText('Loading')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText(/Home/i)).toBeInTheDocument();
+    });
   });
 
   it('should render the buttons to show certificate and go to the course link', async () => {
-    renderComponent(true);
+    renderComponent();
 
     await waitFor(() => {
-      expect(screen.getAllByRole('link')).toHaveLength(2);
+      expect(screen.getByTestId('knowTheCourse')).toBeInTheDocument();
+    });
+
+    await waitFor(() => {
+      expect(screen.getByTestId('certificate')).toBeInTheDocument();
     });
 
     await waitFor(() => {
@@ -67,7 +74,7 @@ describe('SingleCertificate > Unit', () => {
   });
 
   it('should render the certificate title', async () => {
-    renderComponent(true);
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.getByText('Titulo muito grande')).toBeInTheDocument();
@@ -75,7 +82,7 @@ describe('SingleCertificate > Unit', () => {
   });
 
   it('should render the certificate stacks', async () => {
-    renderComponent(true);
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.getAllByRole('listitem')).toHaveLength(2);
@@ -91,10 +98,18 @@ describe('SingleCertificate > Unit', () => {
   });
 
   it('should render the certificate date', async () => {
-    renderComponent(true);
+    renderComponent();
 
     await waitFor(() => {
       expect(screen.getByText('Recebido em: 20/03/2022')).toBeInTheDocument();
+    });
+  });
+
+  it('should display "Em desenvolvimento" when status is not complete', async () => {
+    renderComponent(30);
+
+    await waitFor(() => {
+      expect(screen.getByText('Em desenvolvimento: 30%')).toBeInTheDocument();
     });
   });
 });

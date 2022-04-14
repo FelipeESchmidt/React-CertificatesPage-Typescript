@@ -1,3 +1,5 @@
+import { CertificateStatus } from '../Certificate/index.types';
+
 export interface InfoProps {
   title: string;
   endDate: string;
@@ -7,5 +9,6 @@ export interface InfoProps {
 
 export interface AccordeonInfoProps {
   info: InfoProps;
+  status: CertificateStatus;
   linkTo: string;
 }

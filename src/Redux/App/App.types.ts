@@ -18,11 +18,12 @@ export interface AppTypes {
 export interface CertificateResponseTypes {
   description: string;
   endDate: string;
-  stacks: [string];
+  stacks: Array<string>;
   title: string;
   imageAlt: string;
   courseImg: string;
   courseUrl: string;
   certificateImg: string;
+  percentage: number;
   _id: string;
 }

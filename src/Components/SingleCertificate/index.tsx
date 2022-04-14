@@ -1,37 +1,14 @@
 import * as React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { Container } from '../../Styles/CommomStyles';
-import { fetchCertificates } from '../../Redux/App/App.actions';
-import { appSelector } from '../../Redux/App/App.selectors';
 
-import { CertificateProps } from '../Certificate/index.types';
 import Breadcrumb, { buildBreadcrumbLink } from '../Breadcrumb';
-import Loading from '../Loading';
 import Switch from '../Switch';
 
 import * as S from './index.styles';
+import { SingleCertificateProps } from './index.types';
 
-function SingleCertificate() {
-  const dispatch = useDispatch();
-  const { id } = useParams();
-  const { certificates, loading } = useSelector(appSelector);
-
-  const [certificate, setCertificate] = React.useState<CertificateProps>();
-  const [loaded, setLoaded] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    if (certificates.length === 0) {
-      dispatch(fetchCertificates);
-    } else {
-      setCertificate(certificates.find((c) => c.id === id));
-      setLoaded(true);
-    }
-  }, [dispatch, certificates, id]);
-
-  const renderUndefinedCertificate = () => <Navigate to="/" replace />;
-
+function SingleCertificate({ certificate }: SingleCertificateProps) {
   const renderCertificate = () =>
     certificate && (
       <S.CertificateWrapper>
@@ -42,12 +19,16 @@ function SingleCertificate() {
             draggable={false}
           />
           <S.ButtonsWrapper>
-            <S.Button href={certificate.courseUrl} target="blank">
+            <S.Button href={certificate.courseUrl} target="blank" data-testid="knowTheCourse">
               Conheça o curso
             </S.Button>
-            <S.Button href={certificate.certificateImg} target="blank">
-              Certificado
-            </S.Button>
+            {certificate.status.complete ? (
+              <S.Button href={certificate.certificateImg} target="blank" data-testid="certificate">
+                Certificado
+              </S.Button>
+            ) : (
+              <S.StyledText>Em desenvolvimento: {certificate.status.percentage}%</S.StyledText>
+            )}
           </S.ButtonsWrapper>
         </S.LeftWrapper>
         <S.RightWrapper>
@@ -65,9 +46,6 @@ function SingleCertificate() {
       </S.CertificateWrapper>
     );
 
-  const renderContent = () =>
-    !certificate && loaded ? renderUndefinedCertificate() : renderCertificate();
-
   return (
     <S.Certificate>
       <Container>
@@ -75,7 +53,7 @@ function SingleCertificate() {
           <Breadcrumb links={[buildBreadcrumbLink('Certificado', '')]}></Breadcrumb>
           <Switch />
         </S.TopWrapper>
-        {loading ? <Loading /> : renderContent()}
+        {renderCertificate()}
       </Container>
     </S.Certificate>
   );

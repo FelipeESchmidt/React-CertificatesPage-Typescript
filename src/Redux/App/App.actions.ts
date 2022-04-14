@@ -29,12 +29,7 @@ const certificatesLoadedWithError = () => ({
 });
 
 export async function fetchCertificates(dispatch: ThunkDispatch<{}, {}, AnyAction>) {
-  const localCertificates = window.localStorage.getItem('certificates');
-  if (!localCertificates) {
-    dispatch(startRequest());
-  } else {
-    dispatch(certificatesLoaded(JSON.parse(localCertificates)));
-  }
+  dispatch(startRequest());
   getCertificates()
     .then((response: any) => normalizeCertificates(response))
     .then((certificates) => dispatch(certificatesLoaded(certificates)))

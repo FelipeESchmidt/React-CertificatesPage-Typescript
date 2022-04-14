@@ -37,13 +37,6 @@ describe('CertificateScreen > Integration', () => {
     expect(screen.getByText(/Minhas/i)).toBeInTheDocument();
   });
 
-  it('should render the breadcrumb', () => {
-    renderComponent();
-
-    expect(screen.getByText(/Home/i)).toBeInTheDocument();
-    expect(screen.getByText(/Certificado/i)).toBeInTheDocument();
-  });
-
   it('should render the footer', () => {
     renderComponent();
 

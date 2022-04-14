@@ -4,7 +4,7 @@ const mediaMid = '@media(max-width: 968px)';
 const mediaSmall = '@media(max-width: 430px)';
 
 export const Certificate = styled.div`
-  min-height: calc(100vh - 190px);
+  min-height: calc(100vh - 211px);
   padding-bottom: 20px;
 `;
 

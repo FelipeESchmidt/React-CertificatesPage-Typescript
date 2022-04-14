@@ -1,6 +1,8 @@
 import { CertificateProps } from '../../Components/Certificate/index.types';
 import { CertificateResponseTypes } from './App.types';
 
+const isComplete = (percentage: number): boolean => percentage === 100;
+
 export const normalizeCertificates = (
   certificates: [CertificateResponseTypes],
 ): CertificateProps[] => {
@@ -18,6 +20,10 @@ export const normalizeCertificates = (
           endDate: certificate.endDate,
           stacks: certificate.stacks,
           title: certificate.title,
+        },
+        status: {
+          complete: isComplete(certificate.percentage),
+          percentage: certificate.percentage,
         },
       }),
     );

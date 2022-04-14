@@ -18,8 +18,10 @@ function Certificates() {
   const { certificates, loading } = useSelector(appSelector);
 
   React.useEffect(() => {
-    dispatch(fetchCertificates);
-  }, [dispatch]);
+    if (!!!certificates.length) {
+      dispatch(fetchCertificates);
+    }
+  }, [dispatch, certificates]);
 
   const renderEmptyList = () => (
     <S.CertificatesEmptyWrapper>
@@ -38,6 +40,7 @@ function Certificates() {
           courseImg={certificate.courseImg}
           imageAlt={certificate.imageAlt}
           info={certificate.info}
+          status={certificate.status}
         />
       ))}
     </S.CertificatesWrapper>
