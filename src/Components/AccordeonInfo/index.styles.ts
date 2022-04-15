@@ -14,6 +14,7 @@ export const StyledTop = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 `;
 
 export const StyledTitle = styled.h3`

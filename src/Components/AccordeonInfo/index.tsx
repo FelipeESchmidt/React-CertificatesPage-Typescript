@@ -13,12 +13,12 @@ function AccordeonInfo({ info, status, linkTo }: AccordeonInfoProps) {
 
   return (
     <S.StyledWrapper>
-      <S.StyledTop>
+      <S.StyledTop onClick={handleToggleInfo}>
         <S.StyledTitle>{info.title}</S.StyledTitle>
         {open ? (
-          <S.StyledCloseIcon data-testid="close-info" onClick={handleToggleInfo} />
+          <S.StyledCloseIcon data-testid="close-info" />
         ) : (
-          <S.StyledOpenIcon data-testid="open-info" onClick={handleToggleInfo} />
+          <S.StyledOpenIcon data-testid="open-info" />
         )}
       </S.StyledTop>
       <S.StyledInfo {...{ open: open }}>
