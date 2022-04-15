@@ -1,12 +1,6 @@
 import styled from 'styled-components';
+import { getColorByPercentage } from '../../Styles/CommomStyles';
 import { CertificateStatus } from './index.types';
-
-const getColorByPercentage = (percentage: number, theme: any) => {
-  if (percentage < 33) return theme.red;
-  if (percentage < 66) return theme.yellow;
-  if (percentage < 100) return theme.blue;
-  return theme.green;
-};
 
 export const Certificate = styled.div`
   position: relative;
