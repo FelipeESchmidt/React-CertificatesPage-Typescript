@@ -27,7 +27,9 @@ function SingleCertificate({ certificate }: SingleCertificateProps) {
                 Certificado
               </S.Button>
             ) : (
-              <S.StyledText>Em desenvolvimento: {certificate.status.percentage}%</S.StyledText>
+              <S.StyledPercentage percentage={certificate.status.percentage}>
+                <span>Em desenvolvimento: {certificate.status.percentage}%</span>
+              </S.StyledPercentage>
             )}
           </S.ButtonsWrapper>
         </S.LeftWrapper>

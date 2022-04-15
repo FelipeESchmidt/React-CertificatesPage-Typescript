@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { getColorByPercentage } from '../../Styles/CommomStyles';
 
 const mediaMid = '@media(max-width: 968px)';
 const mediaSmall = '@media(max-width: 430px)';
@@ -96,6 +97,29 @@ export const Button = styled.a`
   box-sizing: border-box;
   box-shadow: 0 2px 2px 0 ${({ theme }) => theme.darkGray},
     0 3px 1px -2px ${({ theme }) => theme.darkGray}, 0 1px 5px 0 ${({ theme }) => theme.darkGray};
+`;
+
+export const StyledPercentage = styled.div<{ percentage: number }>`
+  :before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: ${({ percentage }) => `${percentage}%`};
+    height: 100%;
+    background-color: ${({ percentage, theme }) => getColorByPercentage(percentage, theme)};
+  }
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  border: 2px solid ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.white};
+  text-align: center;
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+  span {
+    position: relative;
+  }
 `;
 
 const textColor = css`
